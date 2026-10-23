@@ -32,9 +32,22 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 bg-[#fcfdf6] backdrop-blur-md border-b border-stone-200/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8 h-20">
+        <div
+          className="flex items-center justify-between gap-8"
+          style={{
+            height: '71px',
+            width: '1092.77px',
+            maxWidth: '100%',
+            marginLeft: '-7px',
+            marginRight: '-4px',
+            marginTop: '0px',
+            marginBottom: '-1px',
+            paddingLeft: '0px',
+            paddingBottom: '0px',
+          }}
+        >
           
           {/* Zone 1: Brand Wordmark with transparent logo, no frame, no background */}
           <button
@@ -151,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 space-y-3">
+        <div className="md:hidden border-t border-slate-200 bg-[#fcfdf6] px-4 pt-4 pb-6 space-y-3 shadow-lg">
           {navLinks.map((link) => (
             <button
               key={link.id}

@@ -7,16 +7,16 @@ export const AboutSection: React.FC = () => {
     <section id="about" className="py-16 sm:py-24 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+        <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
             <span>Identité & Engagements</span>
             <span className="text-slate-300">/</span>
             <span>CleanZoe Marrakech</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Une société de nettoyage exigeante au service de Marrakech
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Née à Marrakech, CleanZoe s'est construite sur une idée simple : offrir un service de nettoyage méticuleux, transparent et ponctuel, aussi bien pour les demeures de charme que pour les entreprises locales.
           </p>
         </div>

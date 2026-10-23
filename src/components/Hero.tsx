@@ -70,9 +70,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
                 href={`${CLEANZOE_NAP.whatsappUrl}?text=Bonjour%20CleanZoe,%20je%20souhaite%20un%20devis%20de%20nettoyage%20%C3%A0%20Marrakech.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-bold tracking-wide text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded transition-smooth"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-bold tracking-wide text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded shadow-sm transition-smooth"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <MessageSquare className="w-4 h-4 text-[#0B192C]" />
                 <span>WhatsApp : 06 64 69 64 70</span>
               </a>
             </div>

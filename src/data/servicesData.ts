@@ -60,7 +60,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Particuliers, propriétaires de villas, locataires et résidents à Marrakech',
     frequency: 'Ponctuel ou abonnement hebdomadaire / bimensuel',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80',
+    image: '/src/assets/images/regenerated_image_1792797709566.jpg',
     seoTitle: 'Nettoyage Résidentiel et Maisons à Marrakech | CleanZoe',
     seoDescription: 'Service de nettoyage résidentiel professionnel à Marrakech. Entretien méticuleux de villas, appartements et riads avec produits certifiés.'
   },

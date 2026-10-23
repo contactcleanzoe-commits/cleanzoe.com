@@ -34,16 +34,16 @@ export const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+        <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
             <span>Retours d'expérience</span>
             <span className="text-slate-300">/</span>
             <span>Marrakech</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Ce que disent nos clients à Marrakech
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Propriétaires de villas, hôtes Airbnb et gestionnaires d'entreprises témoignent de la rigueur de nos interventions.
           </p>
         </div>

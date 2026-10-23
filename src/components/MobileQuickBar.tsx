@@ -10,7 +10,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenQuote }) =
   return (
     <aside
       aria-label="Actions rapides mobiles"
-      className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 md:hidden shadow-lg"
+      className="fixed bottom-0 inset-x-0 z-40 bg-[#fcfdf6]/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 md:hidden shadow-lg"
     >
       <div className="grid grid-cols-3 gap-2">
         <a

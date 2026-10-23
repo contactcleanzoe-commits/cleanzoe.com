@@ -155,8 +155,8 @@ export const ServiceAreaSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+        <div className="max-w-3xl mx-auto mb-14 text-center flex flex-col items-center">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
             <span>Pourquoi CleanZoe</span>
             <span className="text-slate-300">/</span>
             <span>Excellence &amp; Garanties</span>
@@ -164,7 +164,7 @@ export const ServiceAreaSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Pourquoi choisir CleanZoe pour votre nettoyage à Marrakech ?
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Nous avons éliminé les aléas du nettoyage traditionnel pour vous offrir une prestation de niveau hôtelier : du matériel industriel, des agents méticuleux et un respect absolu de votre calendrier.
           </p>
         </div>
