@@ -1,0 +1,8 @@
+{
+  "name": "CleanZoe | Entreprise de Nettoyage Professionnel à Marrakech",
+  "description": "CleanZoe est une entreprise de nettoyage professionnel à Marrakech : nettoyage résidentiel, bureaux, Airbnb, après chantier, vitres et traitement des sols.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
