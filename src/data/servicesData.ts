@@ -1,3 +1,7 @@
+import residentialImg from '../assets/images/regenerated_image_1792797709566.webp';
+import airbnbImg from '../assets/images/service_airbnb_hospitality_1792769384607.webp';
+import marbleImg from '../assets/images/service_marble_polishing_1792769384935.webp';
+
 export interface CleaningServiceItem {
   id: string;
   slug: string;
@@ -20,6 +24,7 @@ export const CLEANZOE_NAP = {
   phone: '0664696470',
   formattedPhone: '+212 6 64 69 64 70',
   whatsappUrl: 'https://wa.me/212664696470',
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61595717915199',
   email: 'cleanzoeservice@gmail.com',
   address: 'Dior Atlas Meuble N24 Mhamid, Marrakech, Maroc',
   locality: 'Marrakech',
@@ -60,7 +65,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Particuliers, propriétaires de villas, locataires et résidents à Marrakech',
     frequency: 'Ponctuel ou abonnement hebdomadaire / bimensuel',
-    image: '/src/assets/images/regenerated_image_1792797709566.jpg',
+    image: residentialImg,
     seoTitle: 'Nettoyage Résidentiel et Maisons à Marrakech | CleanZoe',
     seoDescription: 'Service de nettoyage résidentiel professionnel à Marrakech. Entretien méticuleux de villas, appartements et riads avec produits certifiés.'
   },
@@ -81,7 +86,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Entreprises, cabinets d\'avocats, agences, startups, espaces de coworking',
     frequency: 'Quotidien, hebdomadaire ou contrat sur mesure',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage de Bureaux et Locaux à Marrakech | CleanZoe',
     seoDescription: 'Entreprise spécialisée dans l\'entretien régulier de bureaux, commerces et locaux professionnels à Marrakech. Devis rapide sans engagement.'
   },
@@ -102,7 +107,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Hôtes Airbnb, propriétaires de riads en location courte durée, conciergeries',
     frequency: 'À chaque rotation de voyageurs (disponible 7j/7)',
-    image: '/src/assets/images/service_airbnb_hospitality_1792769384607.jpg',
+    image: airbnbImg,
     seoTitle: 'Ménage Airbnb et Conciergerie à Marrakech | CleanZoe',
     seoDescription: 'Service de ménage Airbnb rapide et professionnel à Marrakech. Rotation de linge, désinfection et remise en état pour des avis 5 étoiles.'
   },
@@ -123,7 +128,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Promoteurs immobiliers, architectes, artisans, propriétaires rénovateurs',
     frequency: 'Intervention ponctuelle de fin de chantier',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage Fin de Chantier et Travaux à Marrakech | CleanZoe',
     seoDescription: 'Remise en état après travaux et fin de chantier à Marrakech. Décapage de ciment, peinture et poussière fine pour une livraison impeccable.'
   },
@@ -144,7 +149,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Villas de prestige, hôtels, riads, halls d\'immeubles, boutiques',
     frequency: 'Traitement annuel ou rénovation ciblée',
-    image: '/src/assets/images/service_marble_polishing_1792769384935.jpg',
+    image: marbleImg,
     seoTitle: 'Cristallisation et Décapage de Marbre à Marrakech | CleanZoe',
     seoDescription: 'Traitement, décapage et cristallisation des sols en marbre, zellige et carrelage à Marrakech. Rénovation brillante par des professionnels.'
   },
@@ -165,7 +170,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Villas contemporaines, riads à patio vitré, bureaux et commerces',
     frequency: 'Ponctuel ou contrat régulier',
-    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage de Vitres et Baies Vitrées à Marrakech | CleanZoe',
     seoDescription: 'Lavage professionnel de vitres, verrières et baies vitrées à Marrakech. Résultat sans trace, matériel pro pour grandes hauteurs.'
   },
@@ -186,7 +191,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Particuliers, hôtels, bureaux, restaurants',
     frequency: 'Semestriel ou annuel',
-    image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage de Tapis et Moquettes à Marrakech | CleanZoe',
     seoDescription: 'Détachage et nettoyage de tapis berbères, modernes et moquettes à Marrakech. Injection-extraction et traitement anti-acariens.'
   },
@@ -207,7 +212,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Propriétaires de villas privées, maisons d\'hôtes, copropriétés',
     frequency: 'Saisonnier ou entretien régulier à l\'année',
-    image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage et Entretien de Piscines à Marrakech | CleanZoe',
     seoDescription: 'Nettoyage complet de bassins, parois, margelles et plages de piscine à Marrakech. Profitez d\'un extérieur impeccable toute l\'année.'
   },
@@ -227,7 +232,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Établissements recevant du public, bureaux, crèches, particuliers',
     frequency: 'Intervention préventive ou curative ciblée',
-    image: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Désinfection et Assainissement de Locaux à Marrakech | CleanZoe',
     seoDescription: 'Service professionnel de désinfection virucide et bactéricide à Marrakech. Pour bureaux, commerces et espaces de vie.'
   },
@@ -248,7 +253,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Syndics professionnels, conseils syndicaux, résidences fermées',
     frequency: 'Contrats hebdomadaires ou bimensuels',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Entretien de Copropriétés et Immeubles à Marrakech | CleanZoe',
     seoDescription: 'Entretien professionnel des parties communes d\'immeubles et résidences à Marrakech. Contrats sur mesure pour syndics et propriétaires.'
   },
@@ -269,7 +274,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Bureaux, résidences, cabinets médicaux, boutiques et villas',
     frequency: 'Abonnements mensuels ou annuels reconductibles',
-    image: 'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Contrats d\'Entretien Régulier à Marrakech | CleanZoe',
     seoDescription: 'Formules d\'entretien régulier pour entreprises et résidences à Marrakech. Planification flexible et équipe dédiée.'
   },
@@ -289,7 +294,7 @@ export const SERVICES_LIST: CleaningServiceItem[] = [
     ],
     audience: 'Propriétaires de villas, parkings, centres commerciaux, entrepôts',
     frequency: 'Entretien semestriel ou remise en état ponctuelle',
-    image: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80&fm=webp',
     seoTitle: 'Nettoyage et Protection des Bétons à Marrakech | CleanZoe',
     seoDescription: 'Décapage haute pression et traitement protecteur pour bétons cirés, imprimés et allées à Marrakech. Résultat durable.'
   }

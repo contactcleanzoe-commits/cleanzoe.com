@@ -14,14 +14,14 @@ export const FaqSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+          <div className="inline-flex items-center gap-2 text-xs font-medium text-[#0084F4] mb-2">
             <HelpCircle className="w-4 h-4" />
             <span>Foire aux questions</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B192C] tracking-tight">
             Questions fréquentes sur nos prestations
           </h2>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-sm text-[#172126]">
             Retrouvez les réponses essentielles concernant nos interventions de nettoyage à Marrakech.
           </p>
         </div>
@@ -48,7 +48,7 @@ export const FaqSection: React.FC = () => {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#172126] leading-relaxed border-t border-slate-100">
                     {faq.a}
                   </div>
                 )}

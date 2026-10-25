@@ -69,6 +69,9 @@ export const LegalNoticeModal: React.FC<LegalNoticeModalProps> = ({ isOpen, onCl
             <p>
               Conformément à la législation marocaine relative à la protection des données à caractère personnel (Loi n° 09-08), les informations collectées via nos formulaires de contact ou WhatsApp (nom, numéro de téléphone, quartier) sont strictement destinées au traitement de vos demandes de devis et d'intervention. Elles ne sont en aucun cas cédées, vendues ou louées à des tiers.
             </p>
+            <p className="mt-2 text-slate-600">
+              Ces données peuvent également être utilisées sous forme cryptée et sécurisée à des fins publicitaires pour toucher des profils similaires intéressés par nos services de nettoyage. Vous pouvez vous y opposer à tout moment et sans frais sur simple demande par message WhatsApp ou email.
+            </p>
           </div>
 
           <div>

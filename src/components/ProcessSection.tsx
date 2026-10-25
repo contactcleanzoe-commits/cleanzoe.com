@@ -30,7 +30,7 @@ export const ProcessSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0B192C] mb-2">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-medium text-[#0B192C] mb-2">
             <span>Méthode de travail</span>
             <span className="text-[#0B192C]/40">/</span>
             <span>Cleanzoe Marrakech</span>
@@ -38,7 +38,7 @@ export const ProcessSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Comment se déroule votre intervention ?
           </h2>
-          <p className="mt-3 text-base text-[#0B192C]/85 leading-relaxed font-medium max-w-2xl mx-auto">
+          <p className="mt-3 text-base text-[#172126] leading-relaxed font-medium max-w-2xl mx-auto">
             Un processus transparent, rigoureux et sans mauvaise surprise du premier contact jusqu'au contrôle final de propreté.
           </p>
         </div>
@@ -56,7 +56,7 @@ export const ProcessSection: React.FC = () => {
                 <h3 className="text-base font-bold text-[#0B192C] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-xs text-slate-700 leading-relaxed">
+                <p className="text-xs text-[#172126] leading-relaxed">
                   {item.desc}
                 </p>
               </div>

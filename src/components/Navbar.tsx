@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Phone, Menu, X, ArrowUpRight } from 'lucide-react';
 import { CLEANZOE_NAP } from '../data/servicesData';
 
@@ -7,6 +7,8 @@ interface NavbarProps {
   setCurrentTab: (tab: string) => void;
   onOpenQuote: () => void;
   onOpenSeoAudit: () => void;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: (open: boolean) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -14,9 +16,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   setCurrentTab,
   onOpenQuote,
   onOpenSeoAudit,
+  mobileMenuOpen,
+  setMobileMenuOpen,
 }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const navLinks = [
     { id: 'accueil', label: 'Accueil' },
     { id: 'services', label: 'Services' },
@@ -28,90 +30,59 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNavClick = (id: string) => {
     setCurrentTab(id);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === 'accueil') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const elem = document.getElementById(
+        id === 'services' ? 'services-section' : id === 'about' ? 'about' : id === 'zones' ? 'zones' : 'contact'
+      );
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#fcfdf6] backdrop-blur-md border-b border-stone-200/40">
+    <header className="sticky top-0 z-40 bg-[#fcfdf6]/95 backdrop-blur-md border-b border-stone-200/60 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="flex items-center justify-between gap-8"
-          style={{
-            height: '71px',
-            width: '1092.77px',
-            maxWidth: '100%',
-            marginLeft: '-7px',
-            marginRight: '-4px',
-            marginTop: '0px',
-            marginBottom: '-1px',
-            paddingLeft: '0px',
-            paddingBottom: '0px',
-          }}
-        >
+        <div className="flex items-center justify-between h-[68px] sm:h-[71px] gap-4">
           
-          {/* Zone 1: Brand Wordmark with transparent logo, no frame, no background */}
+          {/* Zone 1: Brand Wordmark with transparent logo */}
           <button
             onClick={() => handleNavClick('accueil')}
-            className="flex items-center gap-3 whitespace-nowrap shrink-0 group text-left focus:outline-none"
+            className="flex items-center gap-2.5 sm:gap-3 whitespace-nowrap shrink-0 group text-left focus:outline-none"
+            aria-label="CleanZoe Marrakech Accueil"
           >
             <img
-              src="/assets/aistudio/logo_cleanzoe_transparent.png"
+              src="/assets/aistudio/logo_cleanzoe_transparent.webp"
               alt="Logo CleanZoe Nettoyage Marrakech"
-              className="object-contain"
-              style={{
-                width: '63.7461px',
-                height: '54.9766px',
-                paddingTop: '2px',
-                marginLeft: '6px',
-                marginTop: '-1px',
-                paddingLeft: '2px',
-                marginRight: '-5px',
-                marginBottom: '-2px',
-              }}
+              className="object-contain w-11 h-11 sm:w-[60px] sm:h-[52px]"
               loading="eager"
+              decoding="async"
+              width={60}
+              height={52}
             />
             <div className="flex flex-col">
-              <span
-                className="text-2xl font-extrabold tracking-tight text-[#0B192C] leading-none"
-                style={{
-                  marginLeft: '-1px',
-                  paddingLeft: '0px',
-                  marginTop: '20px',
-                  marginRight: '12px',
-                  width: '126.656px',
-                  height: '21.9844px',
-                  display: 'inline-block',
-                }}
-              >
-                Clean<span className="text-[#0084F4]">zoe</span>
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight leading-none">
+                <span className="text-[#172126]">Clean</span>
+                <span className="text-[#0084F4]">zoe</span>
               </span>
-              <span
-                className="text-[11px] font-medium text-slate-500 tracking-tight"
-                style={{
-                  paddingLeft: '0px',
-                  marginRight: '4px',
-                  marginLeft: '1px',
-                  marginBottom: '13px',
-                  height: '12.4844px',
-                  width: '129.656px',
-                  display: 'inline-block',
-                }}
-              >
+              <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-tight mt-0.5">
                 on nettoie, vous respirez
               </span>
             </div>
           </button>
 
-          {/* Zone 2: Navigation Links (single-line, clean text) */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          {/* Zone 2: Desktop Navigation Links (single-line, clean text) */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-[#172126]">
             {navLinks.map((link) => {
               const isActive = currentTab === link.id;
               return (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`relative py-1 transition-colors whitespace-nowrap shrink-0 hover:text-[#0B192C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0084F4] ${
-                    isActive ? 'text-[#0B192C] font-semibold' : ''
+                  className={`relative py-1 transition-colors whitespace-nowrap shrink-0 hover:text-[#0483dd] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0084F4] ${
+                    isActive ? 'text-[#172126] font-bold' : 'text-[#172126]'
                   }`}
                 >
                   {link.label}
@@ -123,81 +94,54 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Zone 3: Primary Action */}
-          <div className="hidden lg:flex items-center gap-4 shrink-0">
+          {/* Zone 3: Primary Desktop Actions (No Facebook icon here) */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href={`tel:${CLEANZOE_NAP.phone}`}
-              className="flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-[#0084F4] transition-colors py-2 px-3 rounded border border-slate-200"
+              className="flex items-center gap-2 text-xs font-semibold text-[#172126] hover:text-[#0084F4] transition-colors py-2 px-3 rounded border border-slate-200 bg-white/70"
               title="Appeler CleanZoe Marrakech"
             >
               <Phone className="w-3.5 h-3.5 text-[#0084F4]" />
-              <span className="tabular-nums">06 64 69 64 70</span>
+              <span className="tabular-nums text-[#172126]">06 64 69 64 70</span>
             </a>
 
             <button
               onClick={onOpenQuote}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold tracking-wide uppercase text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-smooth whitespace-nowrap shrink-0 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold tracking-wide uppercase text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-all whitespace-nowrap shrink-0 shadow-sm hover:shadow"
             >
               <span>Devis Express</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Top Header Actions (No Facebook icon) */}
           <div className="flex md:hidden items-center gap-2">
+            <a
+              href={`tel:${CLEANZOE_NAP.phone}`}
+              className="p-2 text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors"
+              aria-label="Appeler CleanZoe"
+              title="Appeler CleanZoe"
+            >
+              <Phone className="w-4 h-4 text-[#0084F4]" />
+            </a>
+
             <button
               onClick={onOpenQuote}
-              className="px-3 py-1.5 text-xs font-bold uppercase text-[#0B192C] bg-[#fbd64a] rounded shadow-xs"
+              className="px-3 py-1.5 text-xs font-bold uppercase text-[#0B192C] bg-[#fbd64a] rounded shadow-xs active:scale-95 transition-transform"
             >
               Devis
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-slate-900 focus:outline-none"
-              aria-label="Ouvrir le menu de navigation"
+              className="p-2 text-slate-800 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 focus:outline-none transition-colors"
+              aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu de navigation'}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-slate-800" /> : <Menu className="w-5 h-5 text-slate-800" />}
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-[#fcfdf6] px-4 pt-4 pb-6 space-y-3 shadow-lg">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`block w-full text-left py-2 px-3 text-sm font-medium rounded ${
-                currentTab === link.id
-                  ? 'bg-slate-100 text-[#0B192C] font-semibold'
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-            <a
-              href={`tel:${CLEANZOE_NAP.phone}`}
-              className="flex items-center justify-center gap-2 py-2.5 text-sm font-semibold text-slate-800 bg-slate-100 rounded"
-            >
-              <Phone className="w-4 h-4 text-[#0084F4]" />
-              <span>Appeler le 06 64 69 64 70</span>
-            </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenSeoAudit();
-              }}
-              className="text-xs text-left text-slate-400 py-1"
-            >
-              Rapport SEO & Fiche Google Business
-            </button>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

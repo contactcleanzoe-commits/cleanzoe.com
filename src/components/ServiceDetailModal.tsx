@@ -51,6 +51,12 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 src={service.image}
                 alt={service.title}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.src.includes('images.unsplash.com/photo-1581578731548-c64695cc6952')) {
+                    target.src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80&fm=webp';
+                  }
+                }}
               />
             </div>
           )}

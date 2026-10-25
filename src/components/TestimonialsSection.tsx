@@ -30,20 +30,20 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section id="avis-clients" className="py-16 sm:py-24 bg-white border-b border-slate-200">
+    <section id="avis-clients" className="py-16 sm:py-24 bg-[#fbd64a] border-b border-amber-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold text-[#0B192C] mb-2">
             <span>Retours d'expérience</span>
-            <span className="text-slate-300">/</span>
+            <span className="text-[#0B192C]/40">/</span>
             <span>Marrakech</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Ce que disent nos clients à Marrakech
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 text-base text-[#172126] leading-relaxed max-w-2xl mx-auto font-medium">
             Propriétaires de villas, hôtes Airbnb et gestionnaires d'entreprises témoignent de la rigueur de nos interventions.
           </p>
         </div>
@@ -53,28 +53,28 @@ export const TestimonialsSection: React.FC = () => {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-[#FAFAFA] border border-slate-200 rounded-lg p-6 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-smooth"
+              className="bg-white border border-amber-200/80 rounded-xl p-6 sm:p-8 flex flex-col justify-between hover:border-amber-300 shadow-md transition-smooth"
             >
               <div>
                 {/* Clean quote mark */}
-                <div className="w-8 h-8 rounded bg-[#fbd64a]/30 text-[#0B192C] flex items-center justify-center mb-5">
+                <div className="w-8 h-8 rounded-lg bg-[#fbd64a] text-[#0B192C] flex items-center justify-center mb-5 font-bold">
                   <Quote className="w-4 h-4" />
                 </div>
 
                 {/* Feedback quote */}
-                <p className="text-sm text-slate-700 leading-relaxed italic">
+                <p className="text-sm text-[#172126] leading-relaxed italic">
                   « {item.feedback} »
                 </p>
               </div>
 
               {/* Client & Service Info */}
-              <div className="mt-6 pt-5 border-t border-slate-200/80">
+              <div className="mt-6 pt-5 border-t border-slate-100">
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-sm font-bold text-[#0B192C]">
                       {item.name}
                     </h3>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-[#172126]/75">
                       {item.role}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ export const TestimonialsSection: React.FC = () => {
 
                 {/* Metadata strip */}
                 <div className="mt-3 text-[11px] text-slate-500 flex items-center gap-2">
-                  <span className="font-medium text-[#0084F4]">{item.service}</span>
+                  <span className="font-semibold text-[#0084F4]">{item.service}</span>
                   <span>·</span>
                   <span>{item.location}</span>
                 </div>

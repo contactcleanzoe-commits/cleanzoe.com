@@ -15,15 +15,16 @@ import { AboutSection } from './components/AboutSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { MobileQuickBar } from './components/MobileQuickBar';
+import { MobileMenuDrawer } from './components/MobileMenuDrawer';
 import { SeoAuditModal } from './components/SeoAuditModal';
-import { CleaningServiceItem } from './data/servicesData';
+import { CleaningServiceItem, SERVICES_LIST } from './data/servicesData';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>('accueil');
   const [selectedService, setSelectedService] = useState<CleaningServiceItem | null>(null);
   const [quoteService, setQuoteService] = useState<CleaningServiceItem | null>(null);
   const [seoAuditOpen, setSeoAuditOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   // Smooth scroll to contact devis section
   const handleOpenQuote = (service?: CleaningServiceItem) => {
@@ -51,6 +52,32 @@ export default function App() {
     }
   };
 
+  // Background asset preloading for speed & instant section transitions
+  useEffect(() => {
+    // Warm browser image cache for critical section assets
+    const preloadList = [
+      '/assets/aistudio/logo_cleanzoe_transparent.webp',
+      '/images/hero_cleaning_marrakech_1792769384949.webp',
+      ...SERVICES_LIST.slice(0, 4).map((s: CleaningServiceItem) => s.image).filter(Boolean) as string[],
+    ];
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        preloadList.forEach((src) => {
+          const img = new Image();
+          img.src = src;
+        });
+      });
+    } else {
+      setTimeout(() => {
+        preloadList.forEach((src) => {
+          const img = new Image();
+          img.src = src;
+        });
+      }, 200);
+    }
+  }, []);
+
   // Tab change effects
   useEffect(() => {
     if (currentTab === 'services') {
@@ -65,13 +92,15 @@ export default function App() {
   }, [currentTab]);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col font-sans text-[#0F172A] selection:bg-[#0084F4] selection:text-white">
+    <div className="min-h-screen bg-[#FAFAFA] flex flex-col font-sans text-[#0F172A] selection:bg-[#0084F4] selection:text-white pb-14 md:pb-0">
       {/* Top Bar Navigation */}
       <Navbar
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         onOpenQuote={() => handleOpenQuote()}
         onOpenSeoAudit={() => setSeoAuditOpen(true)}
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
       />
 
       <main className="flex-1">
@@ -114,8 +143,15 @@ export default function App() {
         onOpenSeoAudit={() => setSeoAuditOpen(true)}
       />
 
-      {/* Touch-Friendly Mobile Quick Bar (under 15% viewport height cap) */}
-      <MobileQuickBar onOpenQuote={() => handleOpenQuote()} />
+      {/* Professional Mobile Menu Drawer adapted for phone UX */}
+      <MobileMenuDrawer
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        currentTab={currentTab}
+        onSelectTab={setCurrentTab}
+        onOpenQuote={() => handleOpenQuote()}
+        onOpenSeoAudit={() => setSeoAuditOpen(true)}
+      />
 
       {/* Service In-Depth Modal */}
       <ServiceDetailModal

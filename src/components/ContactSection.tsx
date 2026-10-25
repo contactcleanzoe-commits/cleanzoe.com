@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageSquare, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, CheckCircle2 } from 'lucide-react';
 import { CLEANZOE_NAP, SERVICES_LIST, CleaningServiceItem } from '../data/servicesData';
+import { LegalNoticeModal } from './LegalNoticeModal';
 
 interface ContactSectionProps {
   initialService?: CleaningServiceItem | null;
@@ -13,10 +14,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
     email: '',
     service: 'Nettoyage Résidentiel (Maisons & Appartements)',
     quartier: 'Guéliz',
-    propertyType: '',
     message: '',
   });
 
+  const [acceptedConsent, setAcceptedConsent] = useState(false);
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [generatedUrl, setGeneratedUrl] = useState('');
@@ -37,6 +39,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
       setErrorMsg('Veuillez renseigner votre nom complet et votre numéro de téléphone.');
       return;
     }
+    if (!acceptedConsent) {
+      setErrorMsg('Veuillez cocher la case d\'acceptation de la politique de confidentialité (Loi marocaine n° 09-08).');
+      return;
+    }
     setErrorMsg('');
 
     // Format comprehensive lead data for WhatsApp
@@ -48,7 +54,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
       formState.email.trim() ? `✉️ *Email :* ${formState.email.trim()}` : null,
       `✨ *Prestation :* ${formState.service}`,
       `📍 *Quartier à Marrakech :* ${formState.quartier}`,
-      formState.propertyType.trim() ? `🏠 *Type de bien / Surface :* ${formState.propertyType.trim()}` : null,
       formState.message.trim() ? `📝 *Précisions :* ${formState.message.trim()}` : null,
       '─────────────────────────────',
       'Merci de me confirmer la faisabilité et le devis estimatif.',
@@ -77,7 +82,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-medium text-[#0084F4] mb-2">
             <span>Nous contacter</span>
             <span className="text-slate-300">/</span>
             <span>Marrakech</span>
@@ -85,77 +90,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Demandez votre devis gratuit à Cleanzoe
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Remplissez ce formulaire : vos informations seront directement transmises sur WhatsApp à notre équipe pour une estimation rapide et sans engagement.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Contact Details (5 Cols) */}
-          <div className="lg:col-span-5 bg-[#0B192C] text-white rounded-lg p-6 sm:p-8 space-y-6">
-            <div>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-[#F5B82E]">
-                Contact direct
-              </span>
-              <h3 className="text-xl font-bold mt-1 text-white">
-                Cleanzoe Marrakech
-              </h3>
-              <p className="text-xs text-slate-300 mt-1">
-                Disponible du lundi au samedi de 08h à 19h (7j/7 pour les urgences Airbnb).
-              </p>
-            </div>
-
-            <div className="space-y-4 pt-4 border-t border-white/10 text-xs">
-              <a
-                href={`tel:${CLEANZOE_NAP.phone}`}
-                className="flex items-start gap-3 p-3 rounded bg-white/5 hover:bg-white/10 transition-colors group"
-              >
-                <Phone className="w-4 h-4 text-[#0084F4] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <div>
-                  <span className="font-bold text-white block">Par téléphone :</span>
-                  <span className="text-sm font-semibold text-[#F5B82E] tabular-nums">
-                    {CLEANZOE_NAP.formattedPhone}
-                  </span>
-                  <span className="text-[11px] text-slate-400 block mt-0.5">Appel direct</span>
-                </div>
-              </a>
-
-              <a
-                href={`${CLEANZOE_NAP.whatsappUrl}?text=Bonjour%20Cleanzoe,%20je%20souhaite%20un%20devis%20de%20nettoyage%20%C3%A0%20Marrakech.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 p-3 rounded bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/30 transition-colors group"
-              >
-                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <div>
-                  <span className="font-bold text-emerald-300 block">Sur WhatsApp :</span>
-                  <span className="text-xs text-emerald-100">Réponse rapide garantie</span>
-                  <span className="text-[11px] text-emerald-400 block mt-0.5">Cliquez pour ouvrir la discussion</span>
-                </div>
-              </a>
-
-              <div className="flex items-start gap-3 p-3 rounded bg-white/5">
-                <MapPin className="w-4 h-4 text-[#0084F4] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold text-white block">Adresse physique :</span>
-                  <span className="text-slate-200">{CLEANZOE_NAP.address}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-3 rounded bg-white/5">
-                <Mail className="w-4 h-4 text-[#0084F4] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-bold text-white block">Email :</span>
-                  <span className="text-slate-200">{CLEANZOE_NAP.email}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Form (7 Cols) */}
-          <div className="lg:col-span-7 bg-[#FAFAFA] border border-slate-200 rounded-lg p-6 sm:p-8">
-            {submitted ? (
+        {/* Centered Form Container */}
+        <div className="max-w-3xl mx-auto -mt-[38px] -mb-[28px] pt-[23px] pb-[24px] pl-[24px] pr-[23px] sm:p-8 md:p-10 bg-[#FAFAFA] border border-slate-200 rounded-xl shadow-sm">
+          {submitted ? (
               <div className="text-center py-8 px-4 space-y-4 bg-emerald-50/60 border border-emerald-200 rounded-lg">
                 <div className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
@@ -189,7 +128,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                   <div>• <strong>Client :</strong> {formState.name} ({formState.phone})</div>
                   <div>• <strong>Prestation :</strong> {formState.service}</div>
                   <div>• <strong>Quartier :</strong> {formState.quartier}</div>
-                  {formState.propertyType && <div>• <strong>Bien / Surface :</strong> {formState.propertyType}</div>}
                   {formState.message && <div>• <strong>Précisions :</strong> {formState.message}</div>}
                 </div>
 
@@ -203,9 +141,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                         email: '',
                         service: 'Nettoyage Résidentiel (Maisons & Appartements)',
                         quartier: 'Guéliz',
-                        propertyType: '',
                         message: '',
                       });
+                      setAcceptedConsent(false);
                     }}
                     className="text-xs font-semibold text-slate-600 hover:text-slate-900 underline"
                   >
@@ -283,32 +221,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Type de bien &amp; Surface estimée
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Ex : Villa 250m², Appartement 85m², Bureau..."
-                      value={formState.propertyType}
-                      onChange={(e) => setFormState({ ...formState, propertyType: e.target.value })}
-                      className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Adresse email (optionnel)
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="nom@exemple.com"
-                      value={formState.email}
-                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
-                    />
-                  </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
+                    Adresse email (optionnel)
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="nom@exemple.com"
+                    value={formState.email}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                    className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
+                  />
                 </div>
 
                 <div>
@@ -316,27 +239,62 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                     Précisions &amp; date d'intervention souhaitée
                   </label>
                   <textarea
-                    rows={3}
+                    rows={2}
                     placeholder="Indiquez vos besoins particuliers, état des lieux, urgence ou disponibilités..."
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
+                    className="w-full h-[43.4px] bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4] resize-none"
                   />
+                </div>
+
+                {/* Consentement Données Personnelles (Loi marocaine n° 09-08 / CNDP) */}
+                <div className="-mt-[13px] pt-1">
+                  <label className="flex items-start gap-2.5 cursor-pointer text-left select-none">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={acceptedConsent}
+                      onChange={(e) => {
+                        setAcceptedConsent(e.target.checked);
+                        if (errorMsg) setErrorMsg('');
+                      }}
+                      className="mt-0.5 w-4 h-4 rounded border-slate-300 text-[#0084F4] focus:ring-[#0084F4] cursor-pointer shrink-0"
+                    />
+                    <span className="text-[9px] font-bold text-left text-slate-700 leading-snug">
+                      J'ai lu et j'accepte la{' '}
+                      <button
+                        type="button"
+                        onClick={() => setLegalModalOpen(true)}
+                        className="font-bold text-[#0084F4] hover:underline cursor-pointer"
+                      >
+                        politique de confidentialité
+                      </button>{' '}
+                      et les{' '}
+                      <button
+                        type="button"
+                        onClick={() => setLegalModalOpen(true)}
+                        className="font-bold text-[#0084F4] hover:underline cursor-pointer"
+                      >
+                        mentions légales
+                      </button>{' '}
+                      relatives à la protection des données personnelles (Loi marocaine n° 09-08 - CNDP). <span className="text-red-500 font-bold">*</span>
+                    </span>
+                  </label>
                 </div>
 
                 {errorMsg && (
                   <p className="text-xs text-red-600 font-semibold">{errorMsg}</p>
                 )}
 
-                <div className="pt-2">
+                <div className="-mt-[14px] pt-2 flex flex-col items-center">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-smooth shadow-sm cursor-pointer group"
+                    className="w-full max-w-[267px] h-[38.1px] inline-flex items-center justify-center gap-2 px-3 text-[9px] font-bold uppercase tracking-wider text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-smooth shadow-sm cursor-pointer group"
                   >
                     <div className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                      <MessageSquare className="w-3.5 h-3.5" />
+                      <MessageSquare className="w-5 h-5 text-white" />
                     </div>
-                    <span>Envoyer ma demande sur WhatsApp</span>
+                    <span className="text-[13px] font-bold">Envoyer ma demande sur WhatsApp</span>
                   </button>
                   <p className="text-center text-[11px] text-slate-500 mt-2">
                     ⚡ Vos informations seront automatiquement formatées et transmises sur WhatsApp (+212 6 64 69 64 70).
@@ -346,9 +304,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
             )}
           </div>
 
-        </div>
-
       </div>
+
+      {/* Modal Mentions Légales & Confidentialité (Loi 09-08) */}
+      <LegalNoticeModal
+        isOpen={legalModalOpen}
+        onClose={() => setLegalModalOpen(false)}
+      />
     </section>
   );
 };

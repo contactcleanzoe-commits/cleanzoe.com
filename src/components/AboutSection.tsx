@@ -8,15 +8,15 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mx-auto mb-12 text-center flex flex-col items-center">
-          <div className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#0084F4] mb-2">
-            <span>Identité & Engagements</span>
+          <div className="inline-flex items-center justify-center gap-2 text-xs font-medium text-[#0084F4] mb-2">
+            <span>Identité &amp; Engagements</span>
             <span className="text-slate-300">/</span>
             <span>CleanZoe Marrakech</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Une société de nettoyage exigeante au service de Marrakech
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 text-base text-[#172126] leading-relaxed max-w-2xl mx-auto">
             Née à Marrakech, CleanZoe s'est construite sur une idée simple : offrir un service de nettoyage méticuleux, transparent et ponctuel, aussi bien pour les demeures de charme que pour les entreprises locales.
           </p>
         </div>
@@ -31,7 +31,7 @@ export const AboutSection: React.FC = () => {
             <h3 className="text-base font-bold text-[#0B192C] mb-2">
               Personnel qualifié & stable
             </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-[#172126] leading-relaxed">
               Tous nos agents sont formés aux protocoles d'hygiène, au maniement des machines professionnelles et aux règles strictes de discrétion chez nos clients.
             </p>
           </div>
@@ -43,7 +43,7 @@ export const AboutSection: React.FC = () => {
             <h3 className="text-base font-bold text-[#0B192C] mb-2">
               Équipement de pointe
             </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-[#172126] leading-relaxed">
               Monobrosses pour cristallisation du marbre, injecteurs-extracteurs pour tapis et fauteuils, nettoyeurs haute pression et perches télescopiques pour vitres.
             </p>
           </div>
@@ -55,7 +55,7 @@ export const AboutSection: React.FC = () => {
             <h3 className="text-base font-bold text-[#0B192C] mb-2">
               Engagement de résultat
             </h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <p className="text-xs text-[#172126] leading-relaxed">
               Chaque intervention fait l'objet d'un contrôle rigoureux. En cas de remarque justifiée, notre équipe intervient à nouveau sans surcoût.
             </p>
           </div>

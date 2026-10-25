@@ -10,38 +10,47 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect, onDirectQuote }) => {
   return (
-    <div className="group bg-white border border-slate-200/90 rounded-xl overflow-hidden flex flex-col justify-between hover:border-[#0084F4] hover:shadow-lg transition-smooth">
+    <div className="group bg-[#0483dd] border border-[#0483dd]/40 rounded-xl overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-white/30 transition-smooth">
       <div>
         {/* Service Image */}
         {service.image && (
-          <div className="h-48 w-full overflow-hidden bg-slate-100 relative">
+          <div className="h-48 w-full overflow-hidden bg-slate-900/10 relative">
             <img
               src={service.image}
               alt={service.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
               loading="lazy"
+              decoding="async"
+              width={400}
+              height={192}
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.includes('images.unsplash.com/photo-1581578731548-c64695cc6952')) {
+                  target.src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80&fm=webp';
+                }
+              }}
             />
           </div>
         )}
 
         <div className="p-6">
           {/* H3 Headline */}
-          <h3 className="text-lg font-bold text-[#0B192C] group-hover:text-[#0084F4] transition-colors leading-snug">
+          <h3 className="text-lg font-bold text-[#fcfdf6] group-hover:text-white transition-colors leading-snug">
             {service.title}
           </h3>
 
           {/* Short description */}
-          <p className="text-sm text-slate-600 mt-2.5 leading-relaxed">
+          <p className="text-sm text-[#fcfdf6] mt-2.5 leading-relaxed opacity-95">
             {service.shortDesc}
           </p>
         </div>
       </div>
 
       {/* Card Action footer */}
-      <div className="px-6 pb-6 pt-3 flex items-center justify-between gap-3 border-t border-slate-100">
+      <div className="px-6 pb-6 pt-3 flex items-center justify-between gap-3 border-t border-white/20">
         <button
           onClick={() => onSelect(service)}
-          className="text-xs font-semibold text-slate-600 hover:text-[#0084F4] inline-flex items-center gap-1 py-1"
+          className="text-xs font-semibold text-[#fcfdf6] hover:text-white inline-flex items-center gap-1.5 py-1 transition-colors"
         >
           <span>En savoir plus</span>
           <ArrowRight className="w-3.5 h-3.5" />
