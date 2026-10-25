@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = () => {
   const [legalOpen, setLegalOpen] = useState(false);
 
   return (
-    <footer className="bg-[#fbd64a] text-[#172126] border-t border-amber-300 pb-12 pt-12">
+    <footer className="bg-[#fbd64a] text-[#172126] border-t border-amber-300 -mt-[5px] pt-[12px] pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Grid */}
@@ -40,11 +40,8 @@ export const Footer: React.FC<FooterProps> = () => {
                 </span>
               </div>
             </div>
-            <p className="text-[#172126] leading-relaxed text-xs max-w-sm">
-              Entreprise spécialisée dans le nettoyage professionnel et l'entretien soigné à Marrakech. Particuliers, villas, bureaux, conciergeries Airbnb et fin de chantier.
-            </p>
-            <p className="text-[#172126]/85 text-xs font-medium">
-              Disponible du lundi au samedi de 08h à 19h (7j/7 pour les urgences Airbnb).
+            <p className="text-[#172126] leading-relaxed text-[12px] max-w-sm">
+              Spécialiste du nettoyage professionnel et de l'entretien soigné à Marrakech. Particuliers, villas, bureaux, conciergeries Airbnb et fin de chantier.
             </p>
           </div>
 

@@ -16,13 +16,13 @@ export const AboutSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Une société de nettoyage exigeante au service de Marrakech
           </h2>
-          <p className="mt-3 text-base text-[#172126] leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-3 text-[14px] sm:text-base text-[#172126] leading-relaxed max-w-2xl mx-auto">
             Née à Marrakech, CleanZoe s'est construite sur une idée simple : offrir un service de nettoyage méticuleux, transparent et ponctuel, aussi bien pour les demeures de charme que pour les entreprises locales.
           </p>
         </div>
 
         {/* 3 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 -mt-[25px] sm:mt-0">
           
           <div className="p-6 rounded-lg bg-[#FAFAFA] border border-slate-200">
             <div className="w-10 h-10 rounded bg-[#0084F4]/10 text-[#0084F4] flex items-center justify-center mb-4">
@@ -75,7 +75,7 @@ export const AboutSection: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0">
             <a
               href={`tel:${CLEANZOE_NAP.phone}`}
-              className="px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-smooth shadow-xs"
+              className="text-[11px] h-[47px] w-[156px] inline-flex items-center justify-center pt-2 pl-[22px] -ml-[2px] mr-[6px] mb-1 font-bold uppercase tracking-wider text-[#0B192C] bg-[#fbd64a] hover:bg-[#f5c72b] rounded transition-smooth shadow-xs"
             >
               06 64 69 64 70
             </a>

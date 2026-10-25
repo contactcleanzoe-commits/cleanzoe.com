@@ -56,18 +56,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             <img
               src="/assets/aistudio/logo_cleanzoe_transparent.webp"
               alt="Logo CleanZoe Nettoyage Marrakech"
-              className="object-contain w-11 h-11 sm:w-[60px] sm:h-[52px]"
+              className="object-contain w-[41px] h-[42px] sm:w-[60px] sm:h-[52px]"
               loading="eager"
               decoding="async"
               width={60}
               height={52}
             />
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight leading-none">
+            <div className="flex flex-col justify-center">
+              <span className="text-[19px] sm:text-2xl font-extrabold tracking-tight leading-none">
                 <span className="text-[#172126]">Clean</span>
                 <span className="text-[#0084F4]">zoe</span>
               </span>
-              <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-tight mt-0.5">
+              <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-tight -mt-[2px]">
                 on nettoie, vous respirez
               </span>
             </div>

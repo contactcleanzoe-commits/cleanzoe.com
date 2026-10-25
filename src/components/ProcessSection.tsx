@@ -38,12 +38,12 @@ export const ProcessSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Comment se déroule votre intervention ?
           </h2>
-          <p className="mt-3 text-base text-[#172126] leading-relaxed font-medium max-w-2xl mx-auto">
+          <p className="mt-3 text-[14px] sm:text-base text-[#172126] leading-relaxed font-medium max-w-2xl mx-auto">
             Un processus transparent, rigoureux et sans mauvaise surprise du premier contact jusqu'au contrôle final de propreté.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 -mt-[25px] sm:mt-0">
           {steps.map((item, idx) => (
             <div
               key={idx}

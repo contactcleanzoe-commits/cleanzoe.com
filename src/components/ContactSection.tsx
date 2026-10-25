@@ -13,7 +13,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
     phone: '',
     email: '',
     service: 'Nettoyage Résidentiel (Maisons & Appartements)',
-    quartier: 'Guéliz',
     message: '',
   });
 
@@ -53,8 +52,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
       `📱 *Téléphone :* ${formState.phone.trim()}`,
       formState.email.trim() ? `✉️ *Email :* ${formState.email.trim()}` : null,
       `✨ *Prestation :* ${formState.service}`,
-      `📍 *Quartier à Marrakech :* ${formState.quartier}`,
-      formState.message.trim() ? `📝 *Précisions :* ${formState.message.trim()}` : null,
+      formState.message.trim() ? `📝 *Quartier & Précisions :* ${formState.message.trim()}` : null,
       '─────────────────────────────',
       'Merci de me confirmer la faisabilité et le devis estimatif.',
     ].filter(Boolean).join('\n');
@@ -127,8 +125,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                   <div className="font-semibold text-slate-900 border-b pb-1">Détails transmis :</div>
                   <div>• <strong>Client :</strong> {formState.name} ({formState.phone})</div>
                   <div>• <strong>Prestation :</strong> {formState.service}</div>
-                  <div>• <strong>Quartier :</strong> {formState.quartier}</div>
-                  {formState.message && <div>• <strong>Précisions :</strong> {formState.message}</div>}
+                  {formState.message && <div>• <strong>Quartier &amp; Précisions :</strong> {formState.message}</div>}
                 </div>
 
                 <div className="pt-2">
@@ -140,7 +137,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                         phone: '',
                         email: '',
                         service: 'Nettoyage Résidentiel (Maisons & Appartements)',
-                        quartier: 'Guéliz',
                         message: '',
                       });
                       setAcceptedConsent(false);
@@ -204,43 +200,25 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Quartier à Marrakech
+                      Adresse email (optionnel)
                     </label>
-                    <select
-                      value={formState.quartier}
-                      onChange={(e) => setFormState({ ...formState, quartier: e.target.value })}
+                    <input
+                      type="email"
+                      placeholder="nom@exemple.com"
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
-                    >
-                      {CLEANZOE_NAP.serviceAreas.map((area) => (
-                        <option key={area} value={area}>
-                          {area}
-                        </option>
-                      ))}
-                      <option value="Autre secteur à Marrakech">Autre secteur à Marrakech</option>
-                    </select>
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Adresse email (optionnel)
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="nom@exemple.com"
-                    value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Précisions &amp; date d'intervention souhaitée
+                    Quartier, précisions &amp; date d'intervention souhaitée
                   </label>
                   <textarea
                     rows={2}
-                    placeholder="Indiquez vos besoins particuliers, état des lieux, urgence ou disponibilités..."
+                    placeholder="Quartier à Marrakech (Guéliz, Hivernage...), date souhaitée ou précisions..."
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     className="w-full h-[43.4px] bg-white border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0084F4] resize-none"
@@ -297,7 +275,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                     <span className="text-[13px] font-bold">Envoyer ma demande sur WhatsApp</span>
                   </button>
                   <p className="text-center text-[11px] text-slate-500 mt-2">
-                    ⚡ Vos informations seront automatiquement formatées et transmises sur WhatsApp (+212 6 64 69 64 70).
+                    Vos informations seront automatiquement formatées et transmises sur WhatsApp (+212 6 64 69 64 70).
                   </p>
                 </div>
               </form>

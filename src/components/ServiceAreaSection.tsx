@@ -85,7 +85,7 @@ export const ServiceAreaSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight text-balance">
             Pourquoi choisir CleanZoe pour votre nettoyage à Marrakech ?
           </h2>
-          <p className="mt-3 text-base text-[#172126] leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-[11px] -mb-[36px] text-[14px] sm:text-base text-[#172126] leading-relaxed max-w-2xl mx-auto">
             Nous avons éliminé les aléas du nettoyage traditionnel pour vous offrir une prestation de niveau hôtelier : du matériel industriel, des agents méticuleux et un respect absolu de votre calendrier.
           </p>
         </div>
@@ -120,10 +120,10 @@ export const ServiceAreaSection: React.FC = () => {
         {/* Side-by-Side Comparison: Nettoyage Informel vs CleanZoe */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0084F4]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0084F4] block text-center sm:text-left">
               Transparence &amp; Rigueur
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0B192C] tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0B192C] tracking-tight text-center sm:text-left">
               La différence entre un simple ménage et l'exigence CleanZoe
             </h3>
             <p className="text-xs sm:text-sm text-[#172126] leading-relaxed">
